@@ -13,10 +13,21 @@ module "vpc" {
   single_nat_gateway     = true
   one_nat_gateway_per_az = false
   enable_vpn_gateway     = false
+  enable_dns_hostnames   = true
 
   tags = {
-    "Name"                                      = "terraform-eks-demo-node"
+    "Name"                                      = "terraform-eks-demo"
     "kubernetes.io/cluster/${var.cluster-name}" = "shared"
+  }
+
+  private_subnet_tags = {
+    "Name"                                      = "terraform-eks-demo-private-subnet"
+    "kubernetes.io/role/internal-elb" = "1"
+
+  }
+  public_subnet_tags = {
+    "Name"                                      = "terraform-eks-demo-public-subnet"
+    "kubernetes.io/role/elb" = "1"
   }
 }
 

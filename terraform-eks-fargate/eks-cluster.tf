@@ -12,7 +12,9 @@ resource "aws_eks_cluster" "demo" {
     # If the expression in the following list itself returns a list, remove the
     # brackets to avoid interpretation as a list of lists. If the expression
     # returns a single list item then leave it as-is and remove this TODO comment.
-    subnet_ids = module.vpc.public_subnets
+    subnet_ids = module.vpc.private_subnets
+#    subnet_ids = ["module.vpc.public_subnets", "module.vpc.private_subnets"]
+#    subnet_ids = ["{module.vpc.public_subnets}", "{module.vpc.private_subnets}"]
   }
 
   depends_on = [
