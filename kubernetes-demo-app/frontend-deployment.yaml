@@ -9,12 +9,14 @@ spec:
     matchLabels:
       app: guestbook
       tier: frontend
+      worker: fargate
   replicas: 3
   template:
     metadata:
       labels:
         app: guestbook
         tier: frontend
+        worker: fargate
     spec:
       containers:
       - name: php-redis

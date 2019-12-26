@@ -6,6 +6,7 @@ metadata:
     app: redis
     role: slave
     tier: backend
+    worker: fargate
 spec:
   ports:
   - port: 6379
@@ -13,3 +14,5 @@ spec:
     app: redis
     role: slave
     tier: backend
+    worker: fargate
+

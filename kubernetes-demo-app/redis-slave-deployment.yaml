@@ -10,6 +10,7 @@ spec:
       app: redis
       role: slave
       tier: backend
+      worker: fargate
   replicas: 2
   template:
     metadata:
@@ -17,6 +18,7 @@ spec:
         app: redis
         role: slave
         tier: backend
+        worker: fargate
     spec:
       containers:
       - name: slave
