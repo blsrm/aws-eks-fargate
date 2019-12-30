@@ -6,7 +6,6 @@ metadata:
     app: redis
     role: master
     tier: backend
-    worker: fargate
 spec:
   ports:
   - port: 6379
@@ -16,4 +15,3 @@ spec:
     role: master
     tier: backend
     worker: fargate
-
